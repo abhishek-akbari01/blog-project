@@ -1,0 +1,41 @@
+{%extends 'layout.html'%}
+{%load static%}
+
+{%block content%}
+    <section class="page-heading wow fadeIn" data-wow-duration="1.5s" style="background-image: url(files/images/01-heading.jpg)">
+        <div class="container">
+            <div class="page-name">
+                <h1>Add Posts</h1>
+                <span>Welcome to blogs</span>
+            </div>
+        </div>
+    </section>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {%csrf_token%}
+        <table align="center">
+            <tr>
+                <td>{{form.image.label_tag}}</td>
+                <td>{{form.image}}</td>
+            </tr>
+            <tr>
+                <td>{{form.name.label_tag}}</td>
+                <td>{{form.name}}</td>
+            </tr>
+            <tr>
+                <td>{{form.category.label_tag}}</td>
+                <td>{{form.category}}</td>
+            </tr>
+            
+            <select name="user" id="" style="display: none;">
+                <option value="{{user_info.id}}">{{user_info.name}}</option>
+            </select>
+            <tr>
+                <td><input type="submit" value="POST"></td>
+            </tr>
+            
+        </table>
+  
+    </form>
+    
+  
+{%endblock%}

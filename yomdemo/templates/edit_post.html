@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit post</title>
+</head>
+<body>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="name" value="{{row.name}}"></td>
+        </tr>
+        <tr>
+            <td>Category</td>
+            <td>
+                <select name="category">
+                    {%for cat in category%}
+                        <option value="{{cat.id}}"
+                            {% if cat.id == row.category.id %} selected {% endif %}>
+                            {{cat.title}}
+                        </option>
+                    {%endfor%}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Image</td>
+            <input type="file" name="image" value="{{row.image}}" width="100">
+        </tr>
+        <tr>
+            <td><input type="submit" name="save" value="Edit"></td>
+        </tr>
+    </form>
+</body>
+</html>

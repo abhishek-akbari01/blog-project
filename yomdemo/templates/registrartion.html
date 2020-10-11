@@ -1,0 +1,47 @@
+{%extends 'layout.html'%}
+
+{%block content%}
+    <section class="page-heading wow fadeIn" data-wow-duration="1.5s" style="background-image: url(files/images/01-heading.jpg)">
+        <div class="container">
+            <div class="page-name">
+                <h1>Registration</h1>
+                <span>Welcome to blogs</span>
+            </div>
+        </div>
+    </section>
+    <section class="contact-us">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Send Us A Message</h2>
+                <div class="section-dec"></div>
+            </div>
+            <div class="send-message col-sm-12">
+                <form id="contact_form"  method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class=" col-md-4 col-sm-4 col-xs-6">
+                        <input type="text" class="blog-search-field" name="name" placeholder="Your name..." value="{{row.name}}">
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <input type="text" class="blog-search-field" name="email" placeholder="Your email..." value="{{row.email}}">
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <input type="password" class="subject" name="password" placeholder="Enter your password.." value="{{row.password}}">
+                    </div>
+                    <!-- <div class="col-md-12 col-sm-12">
+                        <textarea id="message" class="input" name="message" placeholder="Message..."></textarea>
+                    </div> -->
+                    <div class="submit-coment col-md-12">
+                        <div class="btn-black">
+                            <input type="submit" name="Save" value="Register">
+                            
+                        </div>
+                        <div>
+                            <a href="http://127.0.0.1:8000/login/">To Login click here</a>
+                        </div>
+                    </div>
+                </form>		
+            </div>
+        </div>
+    </section>
+
+{%endblock%}

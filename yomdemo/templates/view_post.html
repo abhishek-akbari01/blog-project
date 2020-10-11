@@ -1,0 +1,38 @@
+{%extends 'layout.html'%}
+
+{%block content%}
+
+<section class="page-heading wow fadeIn" data-wow-duration="1.5s" style="background-image: url(files/images/01-heading.jpg)">
+    <div class="container">
+        <div class="page-name">
+            <h1>View Posts</h1>
+            <span>Welcome to blogs</span>
+        </div>
+    </div>
+</section>
+
+    <table border="1" align="center"> 
+        <tr>
+            <td>NO</td>
+            <td>NAME</td>
+            <td>CATEGORY</td>
+            <td>POST</td>
+            <td>EDIT</td>
+            <td>DELETE</td>
+        </tr>
+    
+        {%for row in row_id%}
+    
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{row.name}}</td>
+            <td>{{row.category}}</td>
+            <td><img src="{{row.image.url}}"  alt="Error" width="100"></td>
+            <td><a href="http://127.0.0.1:8000/delete?id={{row.id}}">delete</a></td>
+            <td><a href="http://127.0.0.1:8000/edit_post/?id={{row.id}}">edit</a></td>
+        </tr>
+        {%endfor%}
+    </table>
+
+    
+{%endblock%}
